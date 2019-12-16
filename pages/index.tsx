@@ -1,5 +1,7 @@
+import HomepageComponent from '../src/app/homepage/components/homepage.component';
+
 const IndexPage = () => (
-  <h1>Hello world</h1>
+  <HomepageComponent />
 )
 
 export default IndexPage

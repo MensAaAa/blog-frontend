@@ -1,0 +1,28 @@
+.homepage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../../../../assets//img/home.jpeg');
+  min-height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .info {
+    position: absolute;
+    border-radius: 50%;
+    top: 150px;
+    height: 330px;
+    width: 280px;
+    left: 46%;
+    
+    span {
+      color: #fff;
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 
 export interface GlobalStateAppType {
-  posts: any,
+  user: any,
 }
 
 export default {
-  posts: null,
+  user: null,
 }

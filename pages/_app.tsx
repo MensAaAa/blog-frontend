@@ -4,8 +4,13 @@ import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
 import { PersistGate } from "redux-persist/integration/react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../src/shared/styles/index.styles.scss';
 
 import { persistor, makeStore } from '../src/core/redux/store';
+
+import LayoutComponent from '../src/app/layout/component/layout.component';
+
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -23,7 +28,9 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <Component {...pageProps} />
+          <LayoutComponent>
+            <Component {...pageProps} />
+          </LayoutComponent>
         </PersistGate>
       </Provider>
     )
