@@ -5,7 +5,7 @@ export interface GlobalStateAppType {
 
 export default {
   user: {
-    currentUser: null,
+    currentUser: { token: '' },
     isFetching: false,
     error: null,
   },

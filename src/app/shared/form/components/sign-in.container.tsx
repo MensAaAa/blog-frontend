@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 
 import FormComponent from './form-generator.component';
+import withAuth from '../../HOC/components/withAuth';
 import { OnSignInStartAction } from '../../../../core/redux/user/user.actions';
 import { signInObject } from '../constants/sign-in-object';
 
@@ -17,7 +18,7 @@ const mapStateToProps = (state) => ({
 })
 
 const SignInContainer = (props) => (
-  <FormComponent formObject={signInObject} {...props}/>
+  <FormComponent formObject={signInObject} {...props} />
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer)
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(SignInContainer));

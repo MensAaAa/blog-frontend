@@ -26,10 +26,10 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, store } = this.props as any;
-    const test = persistStore(store);
+    const persistor = persistStore(store);
     return (
       <Provider store={store}>
-        <PersistGate persistor={test}>
+        <PersistGate persistor={persistor}>
           <LayoutComponent>
             <Component {...pageProps} />
           </LayoutComponent>
