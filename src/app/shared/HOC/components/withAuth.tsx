@@ -1,16 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Router from 'next/router';
 
-interface PropsType {
-  token: string;
-}
+import { LocalStorage } from '../../../../shared/storage';
+
 
 const withAuth = (Component) => {
-  class WrappedComponent extends React.PureComponent<PropsType> {
-    componentDidMount() {
-      const { token } = this.props;
-      console.log(token)
+  class WrappedComponent extends React.PureComponent<{}> {
+    async componentDidMount() {
+      const token = new LocalStorage().getItem();
+
       if (token) {
         Router.push('/dashboard');
       }
@@ -27,10 +25,7 @@ const withAuth = (Component) => {
     }
   }
 
-  const mapStateToProps = (state) => ({
-    token: state.user.currentUser.token,
-  })
-  return connect(mapStateToProps)(WrappedComponent);
+  return WrappedComponent;
 }
 
 export default withAuth;

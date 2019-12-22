@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 
 import HeaderComponent from './header.component';
 import FooterComponent from './footer.component';
@@ -8,11 +9,14 @@ interface PropsType {
 }
 
 const LayoutComponent = ({ children }: PropsType) => (
-  <div>
+  <React.Fragment>
+    <Head>
+      <title>Moja prica</title>
+    </Head>
     <HeaderComponent />
     {children}
     <FooterComponent />
-  </div>
+  </React.Fragment>
 )
 
 export default LayoutComponent;

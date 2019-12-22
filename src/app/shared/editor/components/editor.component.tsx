@@ -13,9 +13,7 @@ interface PropsType {
 class EditorComponent extends React.PureComponent<PropsType, {}> {
   private quill = null;
 
-  constructor(props) {
-    super(props);
-
+  componentDidMount() {
     if (document) {
       this.quill = require('react-quill');
     }

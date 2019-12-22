@@ -8,6 +8,8 @@ import { OnSignInStartAction } from '../../../core/redux/user/user.actions';
 import { signInObject } from '../constants/sign-in-object';
 import { signInSchema } from '../validations';
 
+import '../styles/sign-in.styles.scss';
+
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
   signIn: (loginData) => {
     dispatch(OnSignInStartAction(loginData))
