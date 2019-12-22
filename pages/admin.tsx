@@ -1,7 +1,7 @@
-import FormContainer from '../src/app/shared/form/components/form.container';
+import SignInContainer from '../src/app/shared/form/components/sign-in.container';
 
 const AdminPage = () => (
-  <FormContainer />
+  <SignInContainer />
 )
 
 export default AdminPage;

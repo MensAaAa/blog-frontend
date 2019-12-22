@@ -5,7 +5,7 @@ import '../styles/custom-button.styles.scss';
 interface PropsType {
   name: string;
   onClick: () => void;
-  isTypeSubmit: boolean;
+  isTypeSubmit?: boolean;
 }
 
 const CustomButtonComponent = ({ name, onClick, isTypeSubmit }: PropsType) => (

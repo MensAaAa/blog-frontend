@@ -5,7 +5,7 @@ export interface OnSignInStartInterface {
 
 export interface OnSignInSuccessInterface {
   type: 'ON_SIGN_IN_SUCCESS',
-  user: any,
+  token: string,
 }
 
 export interface OnSignInFailedInterface {

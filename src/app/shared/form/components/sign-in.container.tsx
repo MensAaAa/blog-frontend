@@ -1,0 +1,23 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { Dispatch, AnyAction } from 'redux';
+
+import FormComponent from './form-generator.component';
+import { OnSignInStartAction } from '../../../../core/redux/user/user.actions';
+import { signInObject } from '../constants/sign-in-object';
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
+  signIn: (loginData) => {
+    dispatch(OnSignInStartAction(loginData))
+  }
+});
+
+const mapStateToProps = (state) => ({
+  errorMessage: state.user.error,
+})
+
+const SignInContainer = (props) => (
+  <FormComponent formObject={signInObject} {...props}/>
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInContainer)

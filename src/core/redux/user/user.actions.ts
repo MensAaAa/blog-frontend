@@ -14,9 +14,9 @@ export const OnSignInStartAction = (loginData: any): OnSignInStartInterface => (
   loginData,
 })
 
-export const OnSignInSuccessAction = (user: any): OnSignInSuccessInterface => ({
+export const OnSignInSuccessAction = (token: string): OnSignInSuccessInterface => ({
   type: types.ON_SIGN_IN_SUCCESS,
-  user,
+  token,
 })
 
 export const OnSignInFailedAction = (error: any): OnSignInFailedInterface => ({

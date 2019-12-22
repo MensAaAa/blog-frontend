@@ -4,5 +4,9 @@ export interface GlobalStateAppType {
 }
 
 export default {
-  user: null,
+  user: {
+    currentUser: null,
+    isFetching: false,
+    error: null,
+  },
 }

@@ -19,9 +19,11 @@ export default (
         isFetching: true,
       }
     case types.ON_SIGN_IN_SUCCESS:
+      const userToken = { token: action.token };
+
       return {
         ...state,
-        currentUser: action.user,
+        currentUser: userToken,
         isFetching: false,
         error: null,
       }

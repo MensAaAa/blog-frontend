@@ -1,16 +1,23 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
+import Router from 'next/router';
+
 import * as types from './user.constants';
 import * as actions from './user.actions';
+import { errorMessages } from '../../../shared/helpers/errorMessages';
+
+import HTTPClient from '../../httpClient';
 
 function* signInStart(data) {
-  console.log(data);
+  const http = new HTTPClient();
   try {
-    const response = null;//yield call();
+    const response = yield http.post('/authenticate', data.loginData);
     if (response) {
-      yield put(actions.OnSignInSuccessAction(response.data))
+      yield put(actions.OnSignInSuccessAction(response.data.token))
+      Router.push('/dashboard');
     }
   } catch (error) {
-    yield put(actions.OnSignInFailedAction(error.response.data.error_description))
+    const { response } = error;
+    yield put(actions.OnSignInFailedAction(errorMessages[response.status]))
   }
 }
 
