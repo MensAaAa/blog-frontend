@@ -1,6 +1,7 @@
 import * as types from './user.constants';
 import { UserActionTypes } from './user.types';
 import defaultState from '../defaultState';
+import { LocalStorage } from '../../../shared/storage';
 
 export interface UserReducerStateType {
   currentUser: any | null,
@@ -20,7 +21,8 @@ export default (
       }
     case types.ON_SIGN_IN_SUCCESS:
       const userToken = { token: action.token };
-
+      new LocalStorage().setItem(action.token);
+      
       return {
         ...state,
         currentUser: userToken,
