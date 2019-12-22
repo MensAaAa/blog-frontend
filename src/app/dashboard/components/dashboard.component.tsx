@@ -6,10 +6,10 @@ import CustomButtom from '../../shared/form/components/custom-button.component';
 import '../styles/dashboard.styles.scss';
 
 const DashboardComponent = () => (
-  <div className="dashboard d-flex flex-column flex-wrap justify-content-center align-center">
+  <div className="dashboard d-flex flex-column flex-wrap align-center">
     <Container>
       <div className="add-post mb-4">
-        <CustomButtom name="Add post" onClick={() => console.log()} />
+        <CustomButtom name="Add post" redirectUrl="/add-post" customClass="submit" />
       </div>
       <Table>
         <thead>

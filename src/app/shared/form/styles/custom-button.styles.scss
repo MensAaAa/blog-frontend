@@ -1,12 +1,39 @@
+$submitColor: #2ecc71;
+$cancelColor: #e74c3c;
+
 .custom-button {
   height: 70px;
-  width: 140px;
-  background-color: grey;
+  width: 200px;
+  background-color: transparent;
   color: white;
   border-radius: 25px;
   outline: none;
+  display: block;
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: .3s all;
 
   &:focus {
     outline: none;
+  }
+}
+
+.submit {
+  border: 5px solid $submitColor;
+  color: $submitColor;
+
+  &:hover {
+    background: $submitColor;
+    color: white;
+  }
+}
+
+.cancel {
+  border: 5px solid $cancelColor;
+  color: $cancelColor;
+
+  &:hover {
+    background: $cancelColor;
+    color: white;
   }
 }
