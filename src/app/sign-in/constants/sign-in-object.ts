@@ -1,4 +1,4 @@
-import { FormObject } from '../interfaces/form-object';
+import { FormObject } from '../../shared/form/interfaces/form-object';
 
 export const signInObject: FormObject[] = [
   {

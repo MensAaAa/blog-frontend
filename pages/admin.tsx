@@ -1,4 +1,4 @@
-import SignInContainer from '../src/app/shared/form/components/sign-in.container';
+import SignInContainer from '../src/app/sign-in/components/sign-in.container';
 
 const AdminPage = () => (
   <SignInContainer />
