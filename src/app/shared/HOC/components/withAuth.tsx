@@ -7,8 +7,8 @@ import { LocalStorage } from '../../../../shared/storage';
 const withAuth = (Component) => {
   class WrappedComponent extends React.PureComponent<{}> {
     async componentDidMount() {
-      const token = new LocalStorage().getItem();
-
+      const token = await new LocalStorage().getItem();
+      
       if (token) {
         Router.push('/dashboard');
       }

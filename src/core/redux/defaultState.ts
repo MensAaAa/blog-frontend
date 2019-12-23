@@ -1,6 +1,9 @@
+import { UserReducerStateType } from "./user/user.reducer";
+import { PostsReducerStateType } from "./posts/posts.reducer";
 
 export interface GlobalStateAppType {
-  user: any,
+  user: UserReducerStateType,
+  posts: PostsReducerStateType,
 }
 
 export default {
@@ -9,4 +12,9 @@ export default {
     isFetching: false,
     error: null,
   },
+  posts: {
+    posts: null,
+    isFetching: false,
+    error: null,
+  }
 }

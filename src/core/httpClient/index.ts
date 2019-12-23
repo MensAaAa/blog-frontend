@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class HTTPClient {
-  private domain: string = 'http://localhost:8080';
+  private domain: string = 'http://localhost:4000';
 
   async get<T>(url: string): Promise<T> {
     return await axios.get(this.domain + url);
