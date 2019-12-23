@@ -10,7 +10,8 @@ import HTTPClient from '../../httpClient';
 function* signInStart(data) {
   const http = new HTTPClient();
   try {
-    const response = yield http.post('/authenticate', data.loginData);
+    const response = yield http.post('/auth/login', data.loginData);
+    
     if (response) {
       yield put(actions.OnSignInSuccessAction(response.data.token))
       Router.push('/dashboard');
