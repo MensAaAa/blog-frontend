@@ -1,0 +1,18 @@
+.single-post {
+  img {
+    object-fit: cover;
+  }
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .views {
+    span {
+      font-size: 20px;
+      justify-self: end;
+    }
+  }
+}

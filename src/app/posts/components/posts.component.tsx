@@ -8,7 +8,7 @@ interface PropsType {
 const PostsComponent = ({ posts }: PropsType) => (
   <div className="d-flex flex-row flex-wrap posts">
     {posts && posts.map(post => 
-        <div className="col-lg-3 pl-0 pr-0 post">
+        <div className="col-lg-3 pl-0 pr-0 post" key={post.id}>
           <PostItem post={post} />
         </div>
       )}

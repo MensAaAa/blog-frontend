@@ -13,7 +13,7 @@ function* fetchPostsStart() {
     const response = yield http.get('/posts');
 
     if (response) {
-      yield put(actions.OnFetchPostsSuccessAction(response.data))
+      yield put(actions.OnFetchPostsSuccessAction(response))
     }
   } catch (error) {
     const { response } = error;

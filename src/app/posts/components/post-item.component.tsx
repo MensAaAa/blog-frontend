@@ -14,7 +14,7 @@ const PostItem = ({ post }: PropsType) => (
       <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} />
       <div className="post-cta d-flex flex-row justify-content-center mt-3">
         <Link href={`/post/[id]`} as={`/post/${post.path}`}>
-          Procitaj vise
+          <a>Procitaj vise</a>
         </Link>
       </div>
     </div>

@@ -1,25 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { OnGetPostStartAction } from '../../src/core/redux/posts/posts.actions';
+import PostContainer from '../../src/app/posts/components/post.container';
 
 class Post extends React.Component<any> {
-  constructor(props) {
-    super(props)
-  }
-
   static async getInitialProps({ store, query }) {
     store.dispatch(OnGetPostStartAction(query.id))
     return;
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div>
-        <p>123</p>
-      </div>
+      <PostContainer />
     )
   }
 }
 
-export default connect(state => state)(Post);
+export default connect()(Post);
