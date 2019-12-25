@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface PropsType {
   post: any
 }
@@ -11,7 +13,9 @@ const PostItem = ({ post }: PropsType) => (
       <h1>{post.title}</h1>
       <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} />
       <div className="post-cta d-flex flex-row justify-content-center mt-3">
-        <a>Procitaj vise</a>
+        <Link href={`/post/[id]`} as={`/post/${post.path}`}>
+          Procitaj vise
+        </Link>
       </div>
     </div>
   </div>

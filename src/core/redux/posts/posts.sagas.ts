@@ -23,7 +23,6 @@ function* fetchPostsStart() {
 
 function* savePostStart(postData: any) {
   const http = new HTTPClient();
-  
   try {
     const response = yield http.post('/posts', postData.newPost);
     if (response) {
@@ -36,6 +35,20 @@ function* savePostStart(postData: any) {
   }
 }
 
+function* getPostStart(params) {
+  const http = new HTTPClient();
+  try {
+    const response = yield http.get(`/posts/${params.path}`);
+    if (response) {
+      yield put(actions.OnGetPostSuccessAction(response))
+    }
+  } catch (error) {
+    const { response } = error;
+    yield put(actions.OnPostsFailedAction(response))
+
+  }
+}
+
 function* onFetchPostsStart() {
   yield takeLatest(types.ON_FETCH_POSTS_START as any, fetchPostsStart)
 }
@@ -44,10 +57,15 @@ function* onPostSaveStart() {
   yield takeLatest(types.ON_POST_SAVE_START, savePostStart)
 }
 
+function* onGetPostStart() {
+  yield takeLatest(types.ON_GET_POST_START, getPostStart)
+}
+
 
 export function* postsSagas() {
   yield all([
     call(onFetchPostsStart),
-    call(onPostSaveStart)
+    call(onPostSaveStart),
+    call(onGetPostStart),
   ])
 }

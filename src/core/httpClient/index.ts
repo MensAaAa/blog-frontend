@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import fetch from 'isomorphic-unfetch';
 
 import { LocalStorage } from '../../shared/storage';
 
@@ -17,7 +18,8 @@ export default class HTTPClient {
   }
 
   async get<T>(url: string): Promise<T> {
-    return await this.axiosInstance.get(url);
+    const res = await fetch(this.domain + url);
+    return await res.json();
   }
 
   async post<T>(url: string, data: {}): Promise<T> {
