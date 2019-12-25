@@ -1,3 +1,5 @@
+import { Post } from "./posts.interface";
+
 export interface OnFetchPostsStartInterface {
   type: 'ON_FETCH_POSTS_START',
 }
@@ -7,11 +9,24 @@ export interface OnFetchPostsSuccessInterface {
   posts: any,
 }
 
-export interface OnFetchPostsFailedInterface {
-  type: 'ON_FETCH_POSTS_FAILED',
+export interface OnPostsFailedInterface {
+  type: 'ON_POSTS_FAILED',
   error: any,
 }
 
-export type PostsActionTypes = OnFetchPostsStartInterface 
+export interface OnPostSaveStartInterface {
+  type: 'ON_POST_SAVE_START',
+  newPost: any,
+}
+
+export interface OnPostSaveSuccessInterface {
+  type: 'ON_POST_SAVE_SUCCESS',
+  post: Post,
+}
+ 
+export type PostsActionTypes = 
+  OnFetchPostsStartInterface 
 | OnFetchPostsSuccessInterface 
-| OnFetchPostsFailedInterface;
+| OnPostsFailedInterface
+| OnPostSaveStartInterface
+| OnPostSaveSuccessInterface;

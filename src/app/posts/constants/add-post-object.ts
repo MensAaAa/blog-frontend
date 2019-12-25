@@ -9,6 +9,11 @@ export const AddPostObject: FormObject[] = [
     type: 'text',
   },
   {
+    name: 'path',
+    placeholder: 'Putanja',
+    type: 'text',
+  },
+  {
     name: 'content',
     placeholder: 'Sadrzaj',
     type: 'text',

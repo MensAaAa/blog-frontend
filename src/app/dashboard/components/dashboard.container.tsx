@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 const mapStateToProps = (state: GlobalStateAppType) => ({
-  posts: state.posts ? state.posts.posts : null,
+  posts: state.posts.posts,
 })
 
 const DashboardContainer = (props) => (<DashboardComponent {...props}/>)

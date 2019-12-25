@@ -14,3 +14,18 @@ export const makeStore = (initialState, options = {}) => {
   store.sagaTask = sagaMiddleware.run(rootSaga);
   return store
 }
+
+export function configureStore(preloadedState, { isServer, req = null }) {
+  const sagaMiddleware = createSagaMiddleware()
+  const store: any = createStore(
+    rootReducer,
+    preloadedState,
+    applyMiddleware(sagaMiddleware)
+  )
+
+  if (req || !isServer) {
+    store.sagaTask = sagaMiddleware.run(rootSaga)
+  }
+
+  return store;
+}
