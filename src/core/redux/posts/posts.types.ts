@@ -23,10 +23,22 @@ export interface OnPostSaveSuccessInterface {
   type: 'ON_POST_SAVE_SUCCESS',
   post: Post,
 }
+
+export interface OnGetPostStartInterface {
+  type: 'ON_GET_POST_START',
+  path: string;
+}
+
+export interface OnGetPostSuccessInterface {
+  type: 'ON_GET_POST_SUCCESS',
+  post: Post,
+}
  
 export type PostsActionTypes = 
   OnFetchPostsStartInterface 
 | OnFetchPostsSuccessInterface 
 | OnPostsFailedInterface
 | OnPostSaveStartInterface
-| OnPostSaveSuccessInterface;
+| OnPostSaveSuccessInterface
+| OnGetPostStartInterface
+| OnGetPostSuccessInterface;

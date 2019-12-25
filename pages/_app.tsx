@@ -12,7 +12,6 @@ import LayoutComponent from '../src/app/layout/component/layout.component';
 
 const MyApp = ({ Component, pageProps, store }) => (
   <Provider store={store}>
-    {console.log(pageProps, store)}
     <LayoutComponent>
       <Component {...pageProps} />
     </LayoutComponent>

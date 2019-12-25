@@ -5,6 +5,7 @@ import { Post } from './posts.interface';
 
 export interface PostsReducerStateType {
   posts: Post[] | null,
+  selectedPost: Post | null,
   error: any,
   isFetching: boolean,
 }
@@ -16,6 +17,7 @@ export default (
   switch (action.type) {
     case types.ON_FETCH_POSTS_START:
     case types.ON_POST_SAVE_START:
+    case types.ON_GET_POST_START:
       return {
         ...state,
         isFetching: true,
@@ -26,10 +28,15 @@ export default (
         posts: action.posts,
         isFetching: false,
       }
-      case types.ON_POST_SAVE_SUCCESS: 
+    case types.ON_POST_SAVE_SUCCESS:
       return {
         ...state,
         posts: [...state.posts, action.post]
+      }
+    case types.ON_GET_POST_SUCCESS:
+      return {
+        ...state,
+        selectedPost: action.post,
       }
     case types.ON_POSTS_FAILED:
       return {

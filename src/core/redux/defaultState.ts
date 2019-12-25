@@ -14,6 +14,7 @@ export default {
   },
   posts: {
     posts: null,
+    selectedPost: null,
     isFetching: false,
     error: null,
   }

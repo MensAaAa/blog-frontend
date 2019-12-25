@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import HomepageComponent from '../src/app/homepage/components/homepage.component';
 import PostsContainer from '../src/app/posts/components/posts.container';
-// import fetch from 'isomorphic-unfetch';
-// import { GlobalStateAppType } from 'src/core/redux/defaultState';
 import { OnFetchPostsStartAction } from '../src/core/redux/posts/posts.actions';
 
 
