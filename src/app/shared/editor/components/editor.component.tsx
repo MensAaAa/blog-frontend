@@ -1,5 +1,5 @@
 import React from 'react';
-import {  FormikProps } from 'formik';
+import { FormikProps } from 'formik';
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -13,19 +13,29 @@ interface PropsType {
 class EditorComponent extends React.PureComponent<PropsType, {}> {
   private quill = null;
 
+  state = {
+    loading: true,
+  }
+
   componentDidMount() {
     if (document) {
       this.quill = require('react-quill');
+      this.setState(() => ({
+        loading: false,
+      }))
     }
   }
+
   render() {
-    const { field, placeholder } = this.props;
+    const { placeholder, form, field } = this.props;
+    const { loading } = this.state;
     const Quill = this.quill;
+    if (loading) return <div />
 
     return (
       <React.Fragment>
         {Quill &&
-          <Quill value={field.value} onChange={field.onChange} placeholder={placeholder} />
+          <Quill value={field.value} onChange={(val) => form.setFieldValue('content', val)} placeholder={placeholder} />
         }
       </React.Fragment>
     )

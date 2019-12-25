@@ -15,6 +15,7 @@ export default (
 ): PostsReducerStateType => {
   switch (action.type) {
     case types.ON_FETCH_POSTS_START:
+    case types.ON_POST_SAVE_START:
       return {
         ...state,
         isFetching: true,
@@ -25,7 +26,12 @@ export default (
         posts: action.posts,
         isFetching: false,
       }
-    case types.ON_FETCH_POSTS_FAILED:
+      case types.ON_POST_SAVE_SUCCESS: 
+      return {
+        ...state,
+        posts: [...state.posts, action.post]
+      }
+    case types.ON_POSTS_FAILED:
       return {
         ...state,
         error: action.error,

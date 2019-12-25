@@ -1,4 +1,4 @@
-import App from 'next/app';
+// import App from 'next/app';
 import React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
@@ -6,33 +6,25 @@ import withReduxSaga from 'next-redux-saga';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../src/shared/styles/index.styles.scss';
 
-import { makeStore } from '../src/core/redux/store';
+import { configureStore } from '../src/core/redux/store';
 
 import LayoutComponent from '../src/app/layout/component/layout.component';
 
+const MyApp = ({ Component, pageProps, store }) => (
+  <Provider store={store}>
+    {console.log(pageProps, store)}
+    <LayoutComponent>
+      <Component {...pageProps} />
+    </LayoutComponent>
+  </Provider>
+)
 
-class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps({ ctx })
-    }
-
-    return { pageProps }
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {}
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx)
   }
-
-  render() {
-    const { Component, pageProps, store } = this.props as any;
-
-    return (
-      <Provider store={store}>
-        <LayoutComponent>
-          <Component {...pageProps} />
-        </LayoutComponent>
-      </Provider>
-    )
-  }
+  return { pageProps }
 }
 
-export default withRedux(makeStore)(withReduxSaga(MyApp))
+export default withRedux(configureStore)(withReduxSaga(MyApp))
