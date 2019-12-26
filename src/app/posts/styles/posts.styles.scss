@@ -4,7 +4,7 @@
     .post-img {}
     .post-info {
       border: 1px solid #ecf0f1;
-      padding: 30px;
+      padding: 0 30px;
       height: 350px;
       width: 100%;
       
@@ -16,7 +16,7 @@
       .content {
         overflow: hidden;
         text-overflow: ellipsis;
-        height: 50%;
+        height: 45%;
       }
     }
     .post-cta {
@@ -31,6 +31,8 @@
         cursor: pointer;
         line-height: 10px;
         transition: 0.3s all;
+        color: black;
+        text-decoration: none;
 
         &:hover {
           border: 3px solid #2c3e50;
