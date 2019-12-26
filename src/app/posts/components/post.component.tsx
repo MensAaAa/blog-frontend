@@ -13,13 +13,15 @@ interface PropsType {
 
 const PostComponent = ({ post, isFetching }: PropsType) => (
   <>
-    <Head>
-      <title>{post.title}</title>
-      <meta name="description" content={post.title} />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <meta name="og:title" property="og:title" content="Graph title" />
-      <meta name="robots" content="index, follow" />
-    </Head>
+    {post &&
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.title} />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="og:title" property="og:title" content="Graph title" />
+        <meta name="robots" content="index, follow" />
+      </Head>
+    }
     <div className="d-flex flex-column flex-wrap single-post">
       <img src="https://d3sgyrafn929g0.cloudfront.net/wp-content/uploads/sites/18/2016/05/27100558/cover-5-600x700.jpg" className="img-fluid" />
       <Container>
