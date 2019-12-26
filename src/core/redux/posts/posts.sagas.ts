@@ -16,8 +16,8 @@ function* fetchPostsStart() {
       yield put(actions.OnFetchPostsSuccessAction(response))
     }
   } catch (error) {
-    const { response } = error;
-    yield put(actions.OnPostsFailedAction(errorMessages[response.status]))
+    // const { response } = error;
+    yield put(actions.OnPostsFailedAction(error))
   }
 }
 
