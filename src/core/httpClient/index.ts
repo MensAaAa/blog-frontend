@@ -8,6 +8,7 @@ export default class HTTPClient {
   private readonly axiosInstance: AxiosInstance;
 
   constructor() {
+    console.log(process.env.HOST)
     this.domain = process.env.HOST ? process.env.HOST : 'http://localhost:4000'
     this.axiosInstance = axios.create({
       baseURL: this.domain,
