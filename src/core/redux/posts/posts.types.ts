@@ -26,19 +26,31 @@ export interface OnPostSaveSuccessInterface {
 
 export interface OnGetPostStartInterface {
   type: 'ON_GET_POST_START',
-  path: string;
+  path: string,
 }
 
 export interface OnGetPostSuccessInterface {
   type: 'ON_GET_POST_SUCCESS',
   post: Post,
 }
- 
-export type PostsActionTypes = 
-  OnFetchPostsStartInterface 
-| OnFetchPostsSuccessInterface 
-| OnPostsFailedInterface
-| OnPostSaveStartInterface
-| OnPostSaveSuccessInterface
-| OnGetPostStartInterface
-| OnGetPostSuccessInterface;
+
+export interface OnDeletePostStartInterface {
+  type: 'ON_DELETE_POST_START',
+  id: number,
+}
+
+export interface OnDeletePostSuccessInterface {
+  type: 'ON_DELETE_POST_SUCCESS',
+  id: number,
+}
+
+export type PostsActionTypes =
+  OnFetchPostsStartInterface
+  | OnFetchPostsSuccessInterface
+  | OnPostsFailedInterface
+  | OnPostSaveStartInterface
+  | OnPostSaveSuccessInterface
+  | OnGetPostStartInterface
+  | OnGetPostSuccessInterface
+  | OnDeletePostStartInterface
+  | OnDeletePostSuccessInterface;

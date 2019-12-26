@@ -9,6 +9,7 @@ import '../styles/dashboard.styles.scss';
 
 interface PropsType {
   fetchPosts: () => void;
+  deletePost: (id: number) => void;
   posts: Post[];
 }
 
@@ -17,6 +18,12 @@ const DashboardComponent = (props: PropsType) => {
     props.fetchPosts();
   }, [])
 
+  const deletePost = (id: number) => {
+    const answer = confirm('Da li ste sigurni');
+    if (answer) {
+      props.deletePost(id)
+    }
+  }
 
   return (
     <div className="dashboard d-flex flex-column flex-wrap align-center">
@@ -32,6 +39,7 @@ const DashboardComponent = (props: PropsType) => {
                 <th>Putanja</th>
                 <th>Pregleda</th>
                 <th>Kreiran</th>
+                <th />
               </tr>
             </thead>
             <tbody>
@@ -39,12 +47,13 @@ const DashboardComponent = (props: PropsType) => {
                 <tr key={post.id}>
                   <td>
                     <Link href={`/post/[id]`} as={`/post/${post.path}`}>
-                      <a style={{ color: 'black', textDecoration: 'none'}} target="_blank">{post.title}</a>
+                      <a style={{ color: 'black', textDecoration: 'none' }} target="_blank">{post.title}</a>
                     </Link>
                   </td>
                   <td>{post.path}</td>
                   <td>{post.views}</td>
                   <td>{new Date(post.createdAt).toLocaleDateString()}</td>
+                  <td><CustomButtom name="Izbrisi" customClass="delete-post cancel" onClick={() => deletePost(post.id)} /></td>
                 </tr>
               ))}
             </tbody>

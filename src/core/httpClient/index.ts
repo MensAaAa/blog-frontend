@@ -20,9 +20,17 @@ export default class HTTPClient {
   }
 
   async get<T>(url: string): Promise<T> {
-    console.log(this.domain)
     const res = await fetch(this.domain + url);
     return await res.json();
+  }
+
+  async delete<T>(url: string): Promise<T> {
+    const token = await new LocalStorage().getItem();
+    return await this.axiosInstance.delete(url, {
+      headers: {
+        'Authorization': token,
+      }
+    })
   }
 
   async post<T>(url: string, data: {}): Promise<T> {

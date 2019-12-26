@@ -37,7 +37,19 @@ export default (
       return {
         ...state,
         selectedPost: action.post,
+        isFetching: false,
       }
+    case types.ON_DELETE_POST_SUCCESS: {
+      const posts = [...state.posts];
+      const postToDelete = posts.find((post) => post.id === action.id);
+      const postIndex = posts.indexOf(postToDelete);
+      if (postIndex !== -1) posts.splice(postIndex, 1);
+
+      return {
+        ...state,
+        posts: [...posts]
+      }
+    }
     case types.ON_POSTS_FAILED:
       return {
         ...state,

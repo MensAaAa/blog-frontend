@@ -8,6 +8,8 @@ import {
   OnPostSaveSuccessInterface,
   OnGetPostStartInterface,
   OnGetPostSuccessInterface,
+  OnDeletePostStartInterface,
+  OnDeletePostSuccessInterface,
 } from './posts.types';
 import { Post } from './posts.interface';
 
@@ -43,4 +45,14 @@ export const OnGetPostStartAction = (path: string): OnGetPostStartInterface => (
 export const OnGetPostSuccessAction = (post: Post) : OnGetPostSuccessInterface => ({
   type: types.ON_GET_POST_SUCCESS,
   post,
+})
+
+export const OnDeletePostStartAction = (id: number): OnDeletePostStartInterface => ({
+  type: types.ON_DELETE_POST_START,
+  id,
+})
+
+export const OnDeletePostSuccessAction = (id: number): OnDeletePostSuccessInterface => ({
+  type: types.ON_DELETE_POST_SUCCESS,
+  id,
 })

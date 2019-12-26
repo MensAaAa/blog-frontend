@@ -10,5 +10,10 @@
   table {
     box-shadow: 1px 1px 10px black;
     padding: 15px;
+
+    .delete-post {
+      height: 40px !important;
+      width: 100px !important;
+    }
   }
 }

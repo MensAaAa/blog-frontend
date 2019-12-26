@@ -5,7 +5,7 @@ import '../styles/custom-button.styles.scss';
 
 interface PropsType {
   name: string;
-  onClick?: () => void;
+  onClick?: (param: any) => void;
   redirectUrl?: string;
   isTypeSubmit?: boolean;
   customClass?: string;
