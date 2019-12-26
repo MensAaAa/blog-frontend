@@ -21,6 +21,7 @@ const AddPostContainer = ({ savePost }: PropsType) => (
     className="add-post-form"
     backBtn={true}
     signIn={savePost}
+    heading="Unesi novi sadrzaj"
   />
 )
 

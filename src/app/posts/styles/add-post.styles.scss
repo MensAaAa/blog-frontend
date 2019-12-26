@@ -1,18 +1,33 @@
 .add-post-form {
-  margin-top: 150px;
+  padding-top: 150px;
   min-height: 1024px;
   height: 100%;
   flex-flow: column wrap;
+  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  .quill {
-    min-height: 400px;
+  h1 {
+    text-align: center;
+    padding-bottom: 20px;
+  }
 
-    .ql-container {
-      height: 100%;
+  form {
+    box-shadow: 1px 1px 10px black;
+    padding: 15px;
+
+    .quill {
       min-height: 400px;
+      background-color: white;
 
-      .ql-editor {
+      .ql-container {
         height: 100%;
+        min-height: 400px;
+  
+        .ql-editor {
+          height: 100%;
+        }
       }
     }
   }

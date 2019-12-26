@@ -16,9 +16,10 @@ interface PropsType {
   signIn?: (loginData) => void;
   errorMessage?: string;
   component?: string | React.ComponentType;
+  heading?: string;
 }
 
-const FormComponent = ({ signIn, formObject, errorMessage, initialValues, validationSchema, className, backBtn }: PropsType) => (
+const FormComponent = ({ signIn, formObject, errorMessage, initialValues, validationSchema, className, backBtn, heading }: PropsType) => (
   <Formik
     initialValues={initialValues}
     validationSchema={validationSchema}
@@ -27,6 +28,9 @@ const FormComponent = ({ signIn, formObject, errorMessage, initialValues, valida
     {formikProps => (
       <div className={`${className} d-flex`}>
         <Container>
+          {heading &&
+            <h1 className="mb-2">{heading}</h1>
+          }
           <form>
             {formObject.map(({ name, placeholder, type, component }: FormObject) => (
               <div className="form-group" key={name}>
