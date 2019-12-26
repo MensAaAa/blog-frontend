@@ -4,10 +4,11 @@ import fetch from 'isomorphic-unfetch';
 import { LocalStorage } from '../../shared/storage';
 
 export default class HTTPClient {
-  private readonly domain: string = 'http://localhost:4000';
+  private readonly domain: string;
   private readonly axiosInstance: AxiosInstance;
 
   constructor() {
+    this.domain = process.env.HOST ? process.env.HOST : 'http://localhost:4000'
     this.axiosInstance = axios.create({
       baseURL: this.domain,
       timeout: 1000,
@@ -18,6 +19,7 @@ export default class HTTPClient {
   }
 
   async get<T>(url: string): Promise<T> {
+    console.log(this.domain)
     const res = await fetch(this.domain + url);
     return await res.json();
   }
