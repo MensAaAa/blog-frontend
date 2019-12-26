@@ -16,7 +16,9 @@ const PostComponent = ({ post, isFetching }: PropsType) => (
     <img src="https://d3sgyrafn929g0.cloudfront.net/wp-content/uploads/sites/18/2016/05/27100558/cover-5-600x700.jpg" className="img-fluid" />
     <Container>
       {isFetching &&
-        <CustomLoader />
+        <div className="d-flex flex-row flex-wrap justify-content-center">
+          <CustomLoader />
+        </div>
       }
       {post && !isFetching &&
         <>
